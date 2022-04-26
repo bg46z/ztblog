@@ -220,12 +220,10 @@ main {
   font-size: 0.875rem;
   white-space: pre-line;
   line-height: 1.5;
-  margin: 1rem;
 }
 
 .textC {
   font-size: 1rem;
-  margin: 1rem;
 }
 
 .actions {
@@ -346,7 +344,6 @@ a {
 .content {
   overflow: hidden;
   border-radius: 0.5rem;
-  margin-top: 1rem;
 }
 
 .content img {
