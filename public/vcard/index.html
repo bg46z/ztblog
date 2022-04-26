@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: rgb(112, 160, 175);">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="url" content="https://smartvcard.com">
+  <meta property="og:title" content="Zachary Bridges">
+  <meta property="twitter:title" content="Zachary Bridges">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <script>
+    "http" == window.location.href.substr(0, 4) && "/" != window.location.href.slice(-1) && window.location.replace(window.location.href + "/");
+  </script>
+  <!---->
+  <title>Zachary Bridges</title>
+  <style>
+    #body {
+      font-family: sans-serif;
+    }
+
+    input[type='range']::-moz-range-track {
+      background: none;
+    }
+
+    input[type='range']::-moz-range-thumb {
+      -moz-appearance: none;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 100%;
+      border: none;
+      background: #2A3D45;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 100%;
+      border: none;
+      background: #2A3D45;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    .closeBtnColor {
+      filter: invert(1)
+    }
+
+    .topAction {
+      filter: invert(1)
+    }
+
+    .action {
+      color: #fff;
+    }
+
+    .card {
+      color: #000 !important
+    }
+
+    .ziacard {
+      color: #000 !important;
+      padding-top: 20px;
+    }
+
+    .text {
+      text-align: center;
+      line-height: 1.5;
+      color: #000 !important
+    }
+  </style>
+  <!---->
+  <link rel="stylesheet" href="./style.min.css">
+</head>
+
+<body id="body">
+  <div id="modal" style="background-color: rgb(196, 203, 202); visibility: hidden; top: 2rem; opacity: 0;">
+    <div id="closeModal"><a id="close" class="closeBtnColor">
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg></div>
+      </a></div>
+    <div id="modalView">
+      <div id="keyInfo">
+        <p class="text">
+          Use my public key to send me encrypted messages
+        </p><a download=""
+          target="_blank" id="dlKey" rel="noreferrer" tabindex="-1" style="background-color: rgb(42, 61, 69);"
+          href="./public-key.asc">
+          <div class="icon action"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+              stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4m4-5l5 5 5-5m-5 5V3"></path>
+            </svg></div> <span class="action">Download Key</span>
+        </a>
+      </div>
+      <div id="copyView">
+        <p class="text">
+          Copy and send the URL to share my Business Card
+        </p> <button id="copyURL" style="background-color: rgb(42, 61, 69);">
+          <div class="icon action"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+              stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+            </svg></div> <span class="action">Copy URL</span>
+        </button>
+      </div>
+      <div id="qrView">
+        <div id="qr"></div>
+        <h2 class="text">Scan the QR Code</h2>
+        <p class="text">to view my Business Card on another device</p>
+      </div>
+    </div>
+  </div>
+  <header>
+    <!---->
+    <div id="topActions">
+      <div>
+        <a id="showKey">
+          <div class="topAction">
+            <svg class="bi bi-key-fill" viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <use xlink:href="bootstrap-icons.svg#key-fill" />
+            </svg>
+          </div>
+        </a>
+        <a id="share">
+          <div class="topAction">
+            <svg class="bi bi share-fill" viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <use xlink:href="bootstrap-icons.svg#share-fill" />
+            </svg>
+          </div>
+        </a> <a id="showQR">
+          <div class="icon topAction"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+              clip-rule="evenodd" stroke-linejoin="round">
+              <g fill="none" stroke="#fff" stroke-width="2">
+                <path d="M4 4h4v4H4zm0 12h4v4H4zM16 4h4v4h-4z"></path>
+                <path d="M12 3v15a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2H3"></path>
+              </g>
+              <path fill="#fff" d="M15 15h2v2h-2z"></path>
+            </svg></div>
+        </a>
+      </div>
+      <!---->
+    </div>
+  </header>
+  <main style="background-color: rgb(196, 203, 202);">
+    <div id="profile"><img src="./photo.jpeg" alt="Photo">
+      <div id="info">
+        <p class="name text">
+          Zachary Bridges
+        </p>
+        <p class="jobtitle text">
+          BridgesWalker Consulting
+        </p>
+        <p class="jobtitle text">
+          Founder and CTO
+        </p>
+      </div>
+    </div>
+    <!---->
+    <div class="actions">
+      <div id="cta"><a id="vcard" rel="noreferrer" download="" target="_blank" aria-label="Save Contact"
+          style="background-color: rgb(42, 61, 69); width: 90%; padding: 1rem 1.5rem;" href="zacharybridges.vcf">
+          <div class="icon action"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+              clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <circle cx="8.5" cy="7" r="4" transform="matrix(.875 0 0 .875 4.563 -.625)" fill="none" stroke="#fff"
+                stroke-width="2.29"></circle>
+              <path d="M5 18c0-3.863 3.137-7 7-7s7 3.137 7 7m-7-2v6m3-3l-3 3-3-3" fill="none" stroke="#fff"
+                stroke-width="2"></path>
+            </svg></div>
+          <p class="action">Save Contact</p>
+        </a></div>
+      <div class="actionsC">
+        <div class="actionBtn"><a href="tel:+1 850-980-0526" target="_blank" rel="noopener noreferrer" aria-label="call"
+            style="background-color: rgb(42, 61, 69);">
+            <div class="icon action"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z">
+                </path>
+              </svg></div>
+          </a>
+          <p class="text">
+            Call
+          </p>
+        </div>
+      </div>
+      <div class="actionsC">
+        <div class="actionBtn"><a href="mailto:zbridges@gmail.com" target="_blank" rel="noopener noreferrer"
+            aria-label="email" style="background-color: rgb(42, 61, 69);">
+            <div class="icon action"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <path d="M22 6l-10 7L2 6"></path>
+              </svg></div>
+          </a>
+          <p class="text">
+            Email
+          </p>
+        </div>
+      </div>
+      <div class="actionsC">
+        <div class="actionBtn"><a href="https://zbridges.com" target="_blank" rel="noopener noreferrer"
+            aria-label="website" style="background-color: rgb(42, 61, 69);">
+            <div class="icon action"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z">
+                </path>
+              </svg></div>
+          </a>
+          <p class="text">
+            Website
+          </p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="actions secondary">
+        <div class="actionsC">
+          <div class="actionBtn secBtn"><a href="https://github.com/bg46z" target="_blank" rel="noopener noreferrer"
+              aria-label="github" style="background-color: rgb(51, 51, 51);">
+              <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff">
+                  <path fill-rule="evenodd"
+                    d="M12.03 2a9.97 9.97 0 00-3.16 19.44c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.91-.61.06-.6.06-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.33 1.08 2.9.83.1-.65.35-1.09.64-1.34-2.22-.25-4.55-1.1-4.55-4.93 0-1.08.4-1.98 1.03-2.67-.1-.26-.45-1.27.1-2.64 0 0 .83-.27 2.74 1.02a9.58 9.58 0 015 0c1.9-1.3 2.73-1.02 2.73-1.02.55 1.37.2 2.38.1 2.64.64.7 1.03 1.58 1.03 2.67 0 3.84-2.33 4.68-4.56 4.92.36.31.68.92.68 1.85l-.01 2.74c0 .26.18.57.68.48A9.98 9.98 0 0012.03 2z"
+                    clip-rule="evenodd"></path>
+                </svg></div>
+            </a></div>
+        </div>
+        <div class="actionsC">
+          <div class="actionBtn secBtn"><a href="https://twitter.com/bg46z" target="_blank" rel="noopener noreferrer"
+              aria-label="twitter" style="background-color: rgb(29, 161, 242);">
+              <div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+                  clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                  <path
+                    d="M19.981 8.497c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 005.001-1.721 4.036 4.036 0 01-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 01-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 01-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 008.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 014.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 002.556-.973 4.02 4.02 0 01-1.771 2.22A8.073 8.073 0 0022 6.414a8.645 8.645 0 01-2.019 2.083z"
+                    fill="#fff" fill-rule="nonzero"></path>
+                </svg></div>
+            </a></div>
+        </div>
+        <div class="actionsC">
+          <div class="actionBtn secBtn"><a href="https://instagram.com/_ztb_" target="_blank" rel="noopener noreferrer"
+              aria-label="instagram" style="background-color: rgb(64, 93, 230);">
+              <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24">
+                  <path
+                    d="M11.999 7.377a4.623 4.623 0 100 9.248 4.623 4.623 0 000-9.248zm0 7.627a3.004 3.004 0 110-6.008 3.004 3.004 0 010 6.008z">
+                  </path>
+                  <circle cx="16.806" cy="7.207" r="1.078"></circle>
+                  <path
+                    d="M20.533 6.111A4.605 4.605 0 0017.9 3.479a6.606 6.606 0 00-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.554 6.554 0 00-2.184.42 4.6 4.6 0 00-2.633 2.632 6.585 6.585 0 00-.419 2.186c-.043.962-.056 1.267-.056 3.71 0 2.442 0 2.753.056 3.71.015.748.156 1.486.419 2.187a4.61 4.61 0 002.634 2.632 6.584 6.584 0 002.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.615 6.615 0 002.186-.419 4.613 4.613 0 002.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.581 6.581 0 00-.421-2.217zm-1.218 9.532a5.043 5.043 0 01-.311 1.688 2.987 2.987 0 01-1.712 1.711 4.985 4.985 0 01-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a4.96 4.96 0 01-1.669-.311 2.985 2.985 0 01-1.719-1.711 5.08 5.08 0 01-.311-1.669c-.043-.95-.053-1.218-.053-3.654 0-2.437 0-2.686.053-3.655a5.038 5.038 0 01.311-1.687c.305-.789.93-1.41 1.719-1.712a5.01 5.01 0 011.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a4.96 4.96 0 011.67.311 2.991 2.991 0 011.712 1.712 5.08 5.08 0 01.311 1.669c.043.951.054 1.218.054 3.655 0 2.436 0 2.698-.043 3.654h-.011z">
+                  </path>
+                </svg></div>
+            </a></div>
+        </div>
+      </div>
+    </div>
+    <div class="attachments">
+      <h2 class="section text">Current Projects</h2>
+      <div>
+        <div class="content text" style="background-color: rgb(196, 203, 202);">
+          <p class="textC ziacard">
+            Vaqueros TexMex BBQ
+            Best BBQ east of the Mississippi River
+            <a href="https://eatvaqueros.com">https://eatvaqueros.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!---->
+  <script src="./qrcode.min.js"></script>
+  <script>
+    let m = document.getElementById("modal"),
+      c = document.getElementById("close"),
+      ki = document.getElementById("keyInfo"),
+      cv = document.getElementById("copyView"),
+      curl = document.getElementById("copyURL"),
+      qrv = document.getElementById("qrView"),
+      qr = document.getElementById("qr"),
+      s = document.getElementById("share"),
+      sqr = document.getElementById("showQR"),
+      sk = document.getElementById("showKey");
+    function tC(e) {
+      "2rem" == e.style.top
+        ? ((e.style.visibility = "visible"),
+          (e.style.top = "0px"),
+          (e.style.opacity = 1))
+        : ((e.style.top = "2rem"),
+          (e.style.opacity = 0),
+          setTimeout(() => {
+            e.style.visibility = "hidden";
+          }, 200));
+    }
+    function dN(e) {
+      e.style.display = "none";
+    }
+    window.addEventListener("load", () => {
+      (document.querySelector("#topActions").style.display = "flex"),
+        (qr.innerHTML = new QRCode({
+          content: window.location.href,
+          container: "svg-viewbox",
+          join: !0,
+          ecl: "L",
+          padding: 0,
+        }).svg());
+    }),
+      navigator.canShare
+        ? s.addEventListener("click", () => {
+          navigator.share({
+            title: document.title,
+            text: "You can view my Digital Business Card here:",
+            url: window.location.href,
+          });
+        })
+        : s.addEventListener("click", () => {
+          tC(m), (cv.style.display = "flex"), dN(qrv), ki && dN(ki);
+        }),
+      sqr.addEventListener("click", () => {
+        tC(m), (qrv.style.display = "block"), dN(cv), ki && dN(ki);
+      }),
+      sk &&
+      sk.addEventListener("click", () => {
+        tC(m), ki && (ki.style.display = "flex"), dN(cv), dN(qrv);
+      }),
+      c.addEventListener("click", () => tC(m)),
+      curl.addEventListener("click", async () => {
+        let e = curl.querySelectorAll(".action")[1];
+        await navigator.clipboard.writeText(window.location.href).then((t) => {
+          (e.innerText = "Copied"),
+            setTimeout(() => {
+              e.innerText = "Copy URL";
+            }, 1e3);
+        });
+      });
+
+  </script>
+  <script>
+    let pC = document.querySelectorAll(".pCtrl"),
+      pP = document.querySelectorAll(".playPause"),
+      srcs = document.querySelectorAll(".source");
+    srcs.forEach((e) => {
+      (e.style.pointerEvents = "none"), e.removeAttribute("controls");
+    }),
+      pC.forEach((e, l) => {
+        e.style.display = "flex";
+        let r = e.querySelector(".currentTime"),
+          s = e.querySelector(".seekBar"),
+          t = e.querySelector(".playPause"),
+          a = t.querySelector(".play"),
+          c = t.querySelector(".pause");
+        srcs[l].addEventListener("timeupdate", () => {
+          let e = srcs[l].currentTime,
+            t = (100 / srcs[l].duration) * e;
+          (s.value = t),
+            100 == t &&
+            ((s.value = 0),
+              (a.style.display = "block"),
+              (c.style.display = "none"));
+          let o = Math.floor(e / 60),
+            y = Math.floor(e % 60);
+          o.toString().length < 2 && (o = "0" + o),
+            y.toString().length < 2 && (y = "0" + y),
+            (r.value = o + ":" + y);
+        }),
+          s.addEventListener("change", () => {
+            srcs[l].currentTime = srcs[l].duration * (parseInt(s.value) / 100);
+          }),
+          t.addEventListener("click", () => {
+            srcs[l].paused
+              ? (srcs.forEach((e, r) => {
+                l != r && (e.paused || e.pause());
+              }),
+                pP.forEach((e, l) => {
+                  let r = e.querySelector(".play"),
+                    s = e.querySelector(".pause");
+                  (r.style.display = "block"), (s.style.display = "none");
+                }),
+                srcs[l].play(),
+                (a.style.display = "none"),
+                (c.style.display = "block"))
+              : (srcs[l].pause(),
+                (c.style.display = "none"),
+                (a.style.display = "block"));
+          });
+      });
+
+  </script>
+</body>
+
+</html>
