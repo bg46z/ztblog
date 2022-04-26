@@ -6,6 +6,7 @@ body {
   color: #fff;
   position: relative;
 }
+
 #modal {
   position: absolute;
   z-index: 1;
@@ -16,6 +17,7 @@ body {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
+
 #closeModal {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -25,15 +27,18 @@ body {
   justify-content: flex-end;
   margin: 1rem 1rem 0 0;
 }
+
 #close {
   padding: 0.75rem;
   cursor: pointer;
   line-height: 0;
 }
+
 .icon {
   width: 1.5rem;
   height: 1.5rem;
 }
+
 #modalView,
 #copyView,
 #qrView,
@@ -49,11 +54,13 @@ body {
   -ms-flex-align: center;
   align-items: center;
 }
+
 #copyView p,
 #keyInfo p {
   margin: 1rem 2em 2rem;
   text-align: center;
 }
+
 #copyURL,
 #dlKey {
   display: -webkit-inline-box;
@@ -68,20 +75,24 @@ body {
   outline: none;
   cursor: pointer;
 }
+
 #copyURL span,
 #dlKey span {
   margin-left: 0.5rem;
 }
+
 #qrView h2,
 #qrView p {
   margin: 0 2rem 0.5rem;
 }
+
 #qr {
   margin: 1rem 2rem 2rem;
   padding: 2rem;
   background: #fff;
   border-radius: 0.5rem;
 }
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -97,6 +108,7 @@ header {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 #logo {
   max-height: 6rem;
   text-align: center;
@@ -107,6 +119,7 @@ header {
   -ms-user-select: none;
   user-select: none;
 }
+
 #topActions {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
@@ -120,11 +133,13 @@ header {
   right: 0;
   top: 1rem;
 }
-#topActions > div {
+
+#topActions>div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
+
 #topActions a {
   padding: 0.75rem;
   cursor: pointer;
@@ -132,9 +147,11 @@ header {
   line-height: 0;
   margin-right: 1rem;
 }
+
 main {
   padding: 1rem;
 }
+
 #profile {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -147,6 +164,7 @@ main {
   -ms-flex-align: center;
   align-items: center;
 }
+
 #profile img {
   width: 7rem;
   height: 7rem;
@@ -166,6 +184,7 @@ main {
   user-select: none;
   margin-top: -6rem;
 }
+
 #info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -184,15 +203,18 @@ main {
   line-height: 1.25;
   word-break: break-word;
 }
+
 .name {
   font-weight: bold;
   font-size: 1.25rem;
   margin: 0;
 }
+
 .jobtitle {
   font-size: 1rem;
   margin: 0.25rem 0 0 0;
 }
+
 .desc,
 .textC {
   font-size: 0.875rem;
@@ -200,10 +222,12 @@ main {
   line-height: 1.5;
   /* margin: 1rem; */
 }
+
 .textC {
   font-size: 1rem;
   margin: 2rem 1rem;
 }
+
 .actions {
   margin-top: 2rem;
   display: -webkit-box;
@@ -215,9 +239,11 @@ main {
   -ms-flex-pack: center;
   justify-content: center;
 }
+
 .actionsC {
   width: 33.33%;
 }
+
 .actionBtn {
   padding: 0.5rem;
   display: -webkit-box;
@@ -234,21 +260,26 @@ main {
   -ms-flex-pack: center;
   justify-content: center;
 }
+
 .actionBtn a {
   border-radius: 100%;
   padding: 0.75rem;
   line-height: 0;
 }
+
 .actionBtn p {
   margin: 0.5rem 0 0;
   font-size: 0.875rem;
 }
+
 .secondary {
   margin-top: 1.25rem;
 }
+
 .secBtn {
   padding: 1rem;
 }
+
 a {
   text-decoration: none;
   -webkit-user-select: none;
@@ -256,6 +287,7 @@ a {
   -ms-user-select: none;
   user-select: none;
 }
+
 #cta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -265,6 +297,7 @@ a {
   justify-content: center;
   width: 90%;
 }
+
 #vcard {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -280,12 +313,15 @@ a {
   cursor: pointer;
   line-height: 0;
 }
+
 #vcard .icon {
   margin-right: 0.5rem;
 }
+
 #vcard p {
   margin: 0;
 }
+
 .attachments {
   /* margin-top: 1.5rem; */
   display: -webkit-box;
@@ -299,17 +335,20 @@ a {
   -ms-flex-pack: center;
   justify-content: center;
 }
+
 .section {
   font-weight: bold;
   text-align: center;
   font-size: 1.5rem;
-  margin: 3rem 1rem 1rem;
+  margin: 1rem 1rem 1rem;
 }
+
 .content {
   overflow: hidden;
   border-radius: 0.5rem;
   margin-top: 1rem;
 }
+
 .content img {
   display: block;
   pointer-events: none;
@@ -319,10 +358,12 @@ a {
   user-select: none;
   width: 100%;
 }
+
 .embedded {
   position: relative;
   padding-top: 56.25%;
 }
+
 .embedded iframe {
   position: absolute;
   top: 0;
@@ -330,10 +371,12 @@ a {
   width: 100%;
   height: 100%;
 }
+
 .music,
 .video {
   width: 100%;
 }
+
 .mediaC {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -349,9 +392,11 @@ a {
   -ms-flex-align: center;
   align-items: center;
 }
+
 video {
   width: 100%;
 }
+
 .controls {
   /* padding: 2rem 1rem; */
   font-size: 0.875rem;
@@ -360,17 +405,21 @@ video {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 .pd2 {
   padding: 2rem 1rem !important;
 }
+
 .prodInfo .desc {
   margin: -1rem 0 0;
 }
+
 .price {
   margin: 2rem 0 0;
   font-size: 1.25rem;
   font-weight: bold;
 }
+
 .label {
   display: inline-block;
   font-size: 1rem;
@@ -379,17 +428,21 @@ video {
   letter-spacing: 1px;
   padding: 0.75rem 1.5rem;
 }
+
 .label p {
   margin: 0;
 }
+
 .title {
   font-size: 1.125rem;
   font-weight: bold;
   margin: 0 0 0.5rem;
 }
+
 .mediaInfo {
   margin: 0;
 }
+
 .pCtrl,
 .docDl {
   display: none;
@@ -403,11 +456,13 @@ video {
   width: 100%;
   padding-bottom: 15px;
 }
+
 .docDl {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
+
 .seekBar {
   width: 100%;
   height: 0.5rem;
@@ -420,6 +475,7 @@ video {
   cursor: pointer;
   padding-bottom: 15px;
 }
+
 .playPause,
 .dlBtn {
   margin: 2rem 0.5rem 0;
@@ -428,14 +484,21 @@ video {
   line-height: 0;
   cursor: pointer;
 }
+
 .pause {
   display: none;
 }
+
 footer {
   padding: 2.5rem 1.5rem 2rem;
   font-size: 0.75rem;
 }
+
 footer a {
   text-decoration: underline;
   color: inherit;
+}
+
+svg {
+  color: black;
 }
